@@ -1,0 +1,18 @@
+[
+    {
+        "fieldname": "Sample Name",
+        "fieldtype": "text",
+        "ismandatory": "yes"
+    },
+    {
+        "fieldname": "Location",
+        "fieldtype": "select",
+        "ismandatory": "yes",
+        "options" : [ 
+            {"optionval" : "0256_Location_D v1.0"},
+            {"optionval" : "0368_Location_D v1.0"},
+            {"optionval" : "0495_Location_D v1.0"},
+            {"optionval" : "0569_Location_V v1.0"}
+        ]
+    }
+]
