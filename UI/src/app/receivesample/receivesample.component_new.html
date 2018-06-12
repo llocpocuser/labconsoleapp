@@ -1,0 +1,39 @@
+<app-header></app-header>
+<a routerLink="/mainlanding">Back</a>
+    
+    <div id="rsinput_header_text">Receive Sample <span style="float:right"></span></div>
+      <br>
+    <form #form="ngForm" ngNativeValidate (ngSubmit)="submitRs(form.value)">
+        <div class="form-group" class="form-horizontal">
+            <div class="row" *ngFor="let item of uIFields">
+                <div *ngIf="item.ISMANDATORY=='yes'" class="col-sm-3" >
+                    <label for="{{item.FIELDNAME}}_label">{{item.DISPLAYNAME}}<font color="red">*</font></label>
+                </div> 
+                <!--<div class="col-sm-4" *ngIf="item.FIELDTYPE=='text'">
+                    <input ngModel type="text" name="{{item.FIELDNAME}}" placeholder="{{selectedfieldValue}}" required>
+                   <input ngModel type="text" name="{{item.FIELDNAME}}" placeholder="" required>
+                </div> -->
+                
+                <div *ngIf = "item.FIELDTYPE == 'select' &&  item.ISMANDATORY == 'yes' && item.FIELDNAME == 'location'">
+                        <div class="col-sm-4">
+                          <select name="{{item.FIELDNAME}}" id={{item.FIELDNAME}} ngModel  class="col3div" style="margin-left:-1px;width:100%;" required>
+                            <option *ngFor="let loc of locations" [value]="loc.LOCATION_NAME">{{loc.LOCATION_NAME}}</option>              
+                          </select>
+                        </div>
+                </div>
+                <div *ngIf = "item.FIELDTYPE == 'select' &&  item.ISMANDATORY == 'yes' && item.FIELDNAME == 'sampleName'">
+                    <div class="col-sm-4">
+                      <select name="{{item.FIELDNAME}}" id={{item.FIELDNAME}} ngModel  class="col3div" style="margin-left:-1px;width:100%;" required>
+                        <option *ngFor="let sample of sampleList" [value]="sample.SAMPLE_NAME">{{sample.SAMPLE_NAME}}</option>              
+                      </select>
+                    </div>
+            </div>
+        
+        </div>
+        <button type="submit" value="Submit" id="rs_input_submit" class="rs_btn_style"> Submit</button>  
+        <button type="button" value="Cancel" id="rs_input_cancel" class="rs_btn_style" (click)="cancelrs()"> Cancel</button>
+        
+</div>
+
+
+</form>

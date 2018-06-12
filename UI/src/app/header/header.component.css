@@ -1,0 +1,24 @@
+#login_logo{
+    width: 8%;
+    margin: 0 auto;
+    /* margin-left: -13%; */
+}
+.headerline{
+    height: 25px;
+    padding-left:0px;
+    background-color: #4d3500;
+    max-width:1500px;
+    margin:auto;
+}
+.btn{
+    background-color: #c4d600;
+    padding-top: 0px;
+    color: #fff;   
+    border: none;
+    height: 35px;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 4px;
+    font-size:16px;
+    /*float:right;*/
+}

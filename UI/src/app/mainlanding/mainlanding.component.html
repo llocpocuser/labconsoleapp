@@ -1,0 +1,51 @@
+<app-header></app-header>
+<a routerLink="/listactivity">Back</a>
+<form #form="ngForm" >
+<div class="container" id="maincontainer">
+
+    <table [mfData]="data" #mf="mfDataTable" class="maintable" [mfRowsOnPage]="10" id="samplelist">
+        <thead>
+        <tr>
+                <th>
+                        <mfDefaultSorter by="select" class="a" ><span id="samplename_thead">Select</span></mfDefaultSorter>
+                    </th>
+            <th>
+                <mfDefaultSorter by="sampleName" class="a" ><span id="samplename_thead">Sample Name</span></mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="location" class="a" ><span id="location_thead">Location</span></mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="receivedate" class="a" ><span id="rcvddt_thead">Received Date</span></mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="receiveby" class="a" ><span id="receiveby_thead">Received By</span></mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="status" class="a" ><span id="status_thead">Status</span></mfDefaultSorter>
+            </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of mf.data;  ">
+                    <td><input type="checkbox" id="{{item.SAMPLE_NAME}}" name="{{item.SAMPLE_NAME}}" (click)="addToSampleList(item)"></td> 
+                    <!--<td><input type="radio" name="sampleid" ngModel value="{{item.SAMPLE_ID}}" (click)="selectSample(item)">{{item.SAMPLE_ID}}</td>-->
+                    <td><span id="{{item.SAMPLE_ID}}" >     {{item.SAMPLE_NAME}}</span></td>
+                    <td><span id="locn_{{item.SAMPLE_ID}}" >   {{item.SAMPLE_LOCATION}}</span></td>
+                    <td><span id="recDt_{{item.SAMPLE_ID}}" >  </span></td>
+                    <td><span id="recBy_{{item.SAMPLE_ID}}" > Joe Wallace</span></td>                      
+                    <td><span id="status_{{item.SAMPLE_ID}}" >{{item.STATUS}}</span></td>
+               
+</tr>
+            </tbody>
+        </table>
+     <br>   
+  <button type="button" class="btn_style" (click)="receiveSample(form.value);" value="receiveSample" id="receive_sample"  > Receive Sample</button>
+  <button type="button" class="btn_style" (click)="makeAvailable(form.value);" value="makeAvailable" id="avail_sample"  > Make Sample Available</button>
+  <!--<button type="button" class="btn_style" (click)="approveSample();" value="approveSample" id="approve_sample"  > Approve Sample</button>-->
+  
+  
+  
+</div>
+</form>
+      

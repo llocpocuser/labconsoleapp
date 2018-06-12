@@ -1,0 +1,35 @@
+
+<app-header></app-header>
+<a routerLink="/mainlanding">Back</a>
+
+<div id="rsinput_header_text">Approve Sample <span style="float:right"></span></div>
+      <br>
+<form #form="ngForm" ngNativeValidate (ngSubmit)="submitapprSample(form.value)"  >
+
+    <div class="form-group" class="form-horizontal">
+        
+            <div class="row" *ngFor="let item of uIFields">
+               
+                    <div *ngIf="item.ismandatory=='yes'" class="col-sm-3" >
+                        <label for="{{item.fieldname}}">{{item.fieldname}}<font color="red">*</font></label>
+                    </div> 
+                    <div class="col-sm-4" *ngIf="item.fieldtype=='text'">
+                        <input ngModel type="text" name="{{item.fieldname}}" id="{{item.fieldname}}" placeholder="" required>
+                    </div> 
+                    <div *ngIf = "item.fieldtype == 'select' &&  item.ismandatory == 'yes'">
+                        <div class="col-sm-4">
+                          <select name="{{item.fieldname}}" id={{item.fieldname}} ngModel  class="col3div" style="margin-left:-1px;width:100%;" required>
+                            <option *ngFor="let opt of item.options" [value]="opt.optionval">{{opt.optionval}}</option>              
+                          </select>
+                        </div>
+                    </div> 
+                    
+            
+            </div> 
+            <button type="submit" value="Submit" id="rs_input_submit" class="rs_btn_style"> Submit</button>  
+            <button type="button" value="Cancel" id="rs_input_cancel" class="rs_btn_style" (click)="cancelappsmpl()"> Cancel</button>
+
+        </div>            
+            
+    
+</form>

@@ -1,0 +1,85 @@
+
+<app-header></app-header>
+<a routerLink="/mainlanding">Back</a>
+<div id="rsinput_header_text">Make Sample Available <span style="float:right"></span></div>
+      <br>
+<form #form="ngForm" ngNativeValidate (ngSubmit)="submitavailSample(form.value)"  >
+
+    
+        <div class="container" id="maincontainer">
+      <table [mfData]="selectedSampleList" #mf="mfDataTable" class="maintable" [mfRowsOnPage]="10">
+
+          <thead>
+              <tr>
+                  <th>
+                      <mfDefaultSorter by="sampleName" class="a" ><span id="samplename_thead">Sample Name</span></mfDefaultSorter>
+                  </th>
+                  <th>
+                      <mfDefaultSorter by="location" class="a" ><span id="location_thead">Location</span></mfDefaultSorter>
+                  </th>
+                  <th>
+                      <mfDefaultSorter by="receivedate" class="a" ><span id="rcvddt_thead">Received Date</span></mfDefaultSorter>
+                  </th>
+                  <th>
+                      <mfDefaultSorter by="receiveby" class="a" ><span id="receiveby_thead">Received By</span></mfDefaultSorter>
+                  </th>
+                  <th>
+                      <mfDefaultSorter by="status" class="a" ><span id="status_thead">Status</span></mfDefaultSorter>
+                  </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of mf.data;  ">
+                                  
+                          <td><span id="{{item.SAMPLE_ID}}" >     {{item.SAMPLE_NAME}}</span></td>
+                          <td><span id="locn_{{item.SAMPLE_ID}}" >   {{item.SAMPLE_LOCATION}}</span></td>
+                          <td><span id="recDt_{{item.SAMPLE_ID}}" >  </span></td>
+                          <td><span id="recBy_{{item.SAMPLE_ID}}" > Joe Wallace</span></td>                      
+                          <td><span id="status_{{item.SAMPLE_ID}}" >{{item.STATUS}}</span></td>
+                     
+      </tr>
+                  </tbody>
+        </table>
+        </div>
+        <div class="form-group" class="form-horizontal green-border">
+            <div class="row" *ngFor="let item of uIFields">
+                    <div *ngIf="item.ISMANDATORY=='yes'" class="col-sm-3" >
+                        <label for="{{item.FIELDNAME}}_label">{{item.DISPLAYNAME}}<font color="red">*</font></label>
+                    </div> 
+                    <div class="col-sm-4" *ngIf="item.FIELDTYPE=='text'">
+                       <input ngModel type="text" id="{{item.FIELDNAME}}" name="{{item.FIELDNAME}}" placeholder="" required>
+                    </div> 
+                    
+                    <!--<div *ngIf = "item.FIELDTYPE == 'select' &&  item.ISMANDATORY == 'yes' && item.FIELDNAME == 'location'">
+                            <div class="col-sm-4">
+                              <select name="{{item.FIELDNAME}}" id={{item.FIELDNAME}} ngModel  class="col3div" style="margin-left:-1px;width:100%;" required>
+                                <option *ngFor="let loc of locations" [value]="loc.LOCATION_NAME">{{loc.LOCATION_NAME}}</option>              
+                              </select>
+                            </div>
+                    </div>
+                    <div *ngIf = "item.FIELDTYPE == 'select' &&  item.ISMANDATORY == 'yes' && item.FIELDNAME == 'sampleName'">
+                        <div class="col-sm-4">
+                          <select name="{{item.FIELDNAME}}" id={{item.FIELDNAME}} ngModel  class="col3div" style="margin-left:-1px;width:100%;" required>
+                            <option *ngFor="let sample of sampleList" [value]="sample.SAMPLE_NAME">{{sample.SAMPLE_NAME}}</option>              
+                          </select>
+                        </div>
+                </div>
+                -->
+                                    <div *ngIf = "item.FIELDTYPE == 'select' &&  item.ISMANDATORY == 'yes' && item.FIELDNAME == 'location'">
+                                <div class="col-sm-4">
+                                  <select name="{{item.FIELDNAME}}" id="aslocation" ngModel  class="col3div" style="margin-left:-1px;width:100%;" required>
+                                    <option *ngFor="let loc of locations" [value]="loc.LOCATION_NAME">{{loc.LOCATION_NAME}}</option>              
+                                  </select>
+                                </div>
+                        </div>
+                                           
+            </div> 
+            <!--<button type="button" value="Add Sample" id="rs_add_sample" class="rs_btn_style"> Add Sample</button>  -->
+            <a style="margin-left:15%;" href="javascript:" (click) = "addSample(form.value)">Add Sample</a>
+            <button type="submit" value="Submit" id="rs_input_submit" class="rs_btn_style"> Submit</button>  
+            <button type="button" value="Cancel" id="rs_input_cancel" class="rs_btn_style" (click)="cancelas()"> Cancel</button>
+
+                 
+            
+    </div>
+</form>

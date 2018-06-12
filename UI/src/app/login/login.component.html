@@ -1,0 +1,21 @@
+
+<div>
+  <form #form="ngForm" (ngSubmit)="submitLogin(form.value)">
+    <div class="form-group" class="form-horizontal" >
+     <img src="assets/Logo.png" id="login_logo"/>
+      
+      <div class="headerline"></div>
+       <div class="container"> 
+          
+      <p>Please Login with your User Id and Password </p>
+     <input type = "text" class = "form-textbox" name = "emailid" placeholder = "emailid">     <br/>
+     <input type = "password" class = "form-textbox" name = "passwd" 
+        placeholder = "passwd">
+     <br/>
+     <input type = "submit" class = "form-submit" value = "Log In" (click)="$event.preventDefault();ValidateLogin()">
+        </div>
+        </div>
+  </form>
+</div>
+
+

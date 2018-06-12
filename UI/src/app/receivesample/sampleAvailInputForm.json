@@ -1,0 +1,21 @@
+{
+	"_id": "59dcb5e7c162cf3c4c8765ed",
+	"receivesamplefields": [
+		{
+			"labelname": "Sample Name",
+			"inputtype": "text",
+			"name": "samplename",
+			"col": "2",
+			"man": "yes",
+			"label":"no"
+            },
+            {
+			"labelname": "Sample Name",
+			"inputtype": "text",
+			"name": "samplename",
+			"col": "2",
+			"man": "yes",
+			"label":"no"
+        	}
+	]
+}

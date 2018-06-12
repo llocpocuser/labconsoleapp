@@ -1,0 +1,46 @@
+
+    input[type=text], input[type=password], select {
+        width: 300px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius:5px;
+        height:35px;
+        padding-top:0px;
+        
+    }
+    input[type=text], input[type=password]{
+        border:1px solid #c4d600;
+    }
+
+    .container {
+        /*padding: 16px;*/
+        width:100%;
+        margin-top:30px;
+        text-align: center;
+    }
+    #login_logo{
+        width: 8%;
+        margin: 0 auto;
+        /* margin-left: -13%; */
+    }
+    .headerline{
+		height: 25px;
+        padding-left:0px;
+        background-color: #4d3500;
+        max-width:1500px;
+        margin:auto;
+	}
+
+    .form-submit {
+        background-color: #b6d600;
+        padding-top: 5px;
+        color: #fff;
+        margin: 8px 0;
+        border: none;
+        height:35px;
+        cursor: pointer;
+        width: 300px;
+        border-radius:2px;
+        font-size:16px;
+    }

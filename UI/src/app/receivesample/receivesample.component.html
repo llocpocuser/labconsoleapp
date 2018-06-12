@@ -1,0 +1,33 @@
+<app-header></app-header>
+<a routerLink="/mainlanding">Back</a>
+    
+    <div id="rsinput_header_text">Receive Sample <span style="float:right"></span></div>
+      <br>
+    <form #form="ngForm" ngNativeValidate (ngSubmit)="submitRs(form.value)">
+        <div class="form-group" class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-3" >
+            <label style="width:100%; float: right;" for="samplename">Sample Name <font color="red">*</font></label>
+          </div> 
+          <div class="col-sm-4" >
+              <input ngModel type="text" name="sampleName" placeholder="" id="sampleName" required>
+            </div> 
+    </div>
+
+    <div class="row">      
+      <div class="col-sm-3">
+          <label style="width:100%;" for="location">Location <font color="red">*</font></label>
+        </div> 
+        <div class="col-sm-4">
+            <select name="location" id="rslocation" ngModel required>
+                <option *ngFor="let item of data" [value]="item.LOCATION_NAME">{{item.LOCATION_NAME}}</option>  
+                </select> 
+            </div>
+        </div> 
+        <button type="submit" value="Submit" id="rs_input_submit" class="rs_btn_style"> Submit</button>  
+        <button type="button" value="Cancel" id="rs_input_cancel" class="rs_btn_style" (click)="cancelrs()"> Cancel</button>
+        
+</div>
+
+
+</form>

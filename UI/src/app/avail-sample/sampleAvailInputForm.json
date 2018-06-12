@@ -1,0 +1,14 @@
+{
+	"_id": "59dcb5e7c162cf3c4c8765ed",
+	"receivesamplefields": [
+		{
+            "labelname" : "Sample Name",
+            "inputtype" : "text",
+            "name" : "sampleName",
+            "col" : "2",
+            "man" : "yes",
+            "dynamic" : "yes",
+            "label" : "yes"
+        }
+	]
+}
